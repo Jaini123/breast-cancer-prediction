@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Prediction{% endblock %}</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+</head>
+<body background="https://www.google.co.in/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&ved=0ahUKEwjpububgp3TAhUKQY8KHZsyDNoQjRwIBw&url=http%3A%2F%2Fwww.ultimatedesignertoolkit.com%2F50-hd-backgrounds-300-dpi%2F&bvm=bv.152180690,d.c2I&psig=AFQjCNH8eOxJFB_wJagSfSv-RZK6CVzZuA&ust=1492021140898391">
+    <!..Navbar ..>
+<nav class="navbar navbar-inverse navbar-fixed-top" id="my-navbar">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+			</button>
+			<a href="" class="navbar-brand">Cancer prediction</a>
+		</div>
+		<div class="collapse navbar-collapse" id="navbar-collapse">
+			<ul class="nav navbar-nav">
+			<li class="active"><a href="#Register"><span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;Register</a>
+			<li><a href="#About"><span class="glyphicon glyphicon-music" aria-hidden="true"></span>&nbsp;About</a>
+			<li><a href="#Contact Us"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>&nbsp;Contact Us</a>
+			</ul>
+			<form action="" class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+			<input type="text" class="form-control" placeholder="search this out">
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+		</div>
+	</div><!..end container..>
+</nav><!..end navbar..>
+<hr>
+<hr>
+  <ul>
+    <li>
+      <a href="{% url 'model_form_upload' %}">Model Form Upload</a>
+    </li>
+  </ul>
+
+  <p>Uploaded files:</p>
+  <ul>
+    {% for obj in documents %}
+      <li>
+        <a href="{{ obj.document.url }}">{{ obj.document.name }}</a>
+        <small>(Uploaded at: {{ obj.uploaded_at }})</small>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% block body %}
+{% endblock %}
+</body>
+</html>
+
+
